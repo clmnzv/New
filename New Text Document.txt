@@ -1,0 +1,23 @@
+xnew = np.linspace(tab.columns.min(),tab.columns.max(),300)
+my_xticks = ['Strongly Agree','Agree','Neutral','Disagree','Strongly Disagree']
+for i in range(0,len(tab)):
+    globals()['power_smooth%d'%i]=spline(tab.columns,tab.iloc[i],xnew)
+
+plt.xticks(tab.columns, my_xticks)
+plt.figure(1)
+plt.plot(xnew,power_smooth0,xnew,power_smooth1)
+plt.xticks(tab.columns, my_xticks)
+plt.legend([str(x) for x in tab.index])
+plt.figure(2)
+plt.xticks(tab.columns, my_xticks)
+plt.plot(xnew,power_smooth0,xnew,power_smooth1,xnew,power_smooth2)
+plt.legend([str(x) for x in tab.index])
+plt.figure(3)
+plt.xticks(tab.columns, my_xticks)
+plt.plot(xnew,power_smooth0,xnew,power_smooth1,xnew,power_smooth2,xnew,power_smooth3)
+plt.legend([str(x) for x in tab.index])
+plt.figure(4)
+plt.xticks(tab.columns, my_xticks)
+plt.plot(xnew,power_smooth0,xnew,power_smooth1,xnew,power_smooth2,xnew,power_smooth3,xnew,power_smooth4)
+plt.legend([str(x) for x in tab.index])
+plt.show()
